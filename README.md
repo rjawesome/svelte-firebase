@@ -1,4 +1,4 @@
-# svlete-firebase
+# svelte-firebase
 Setup:
 - Put this in a folder where your source code is and call this folder ``svelte-firebase``
 - Do ``npm i firebase-tools`` to install firebase tools

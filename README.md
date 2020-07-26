@@ -1,6 +1,11 @@
 # svlete-firebase
-- put this in a folder where ur source code is called svelte-firebase. this library currently supports firebase auth and firestore. also do ``npm i firebase-tools``
+Setup:
+- Put this in a folder where your source code is and call this folder ``svelte-firebase``
+- Do ``npm i firebase-tools`` to install firebase tools
+- Run ``firebase login`` to login to firebase
+- Get your firebase app configuration
 
+Imports:
 ```javascript
 import firebase from "firebase/app"
 import "firebase/auth" //if you are using auth
@@ -8,22 +13,28 @@ import "firebase/firestore" //if you are using firestore
 import { User, Doc, Collection } from "./svelte-firebase"
 ```
 
-ok so now how to use the components. so first step is to inintialize ur firebase app alright. so do
-
+App Initialization:
 ```javascript
 if (firebase.apps.length !== 0) {
   firebase.initializeApp({ /* config details*/ })
 }
 ```
 
-ok so now ur done with that. u can move on to the next step which is to use the user component. so here the user will be stored in a variable called user.
-the slots will show if it is loading or user is not signed in. if it is in a slot it will not show the code which is not inside a slot
-
+User Component:
 ```javascript
-<User let:user>
+<User firebase={firebase} let:user>
 <div slot="loading">Loading...</div>
 <div slot="signed-out">Please Sign In!!!</div>
 Hi {user.displayName}!
 </User>
 ```
 
+
+Doc Component (this component will react automatically to changes in the Document) -- In this example I assume this Doc component is inside the User Component:
+```javascript
+<Doc firebase={firebase} path="/users/{user.uid}" let:id let:doc>
+<div slot="loading">Loading...</div>
+<div slot="fallback">Document doesnt exist :(</div>
+The doc id {id}. The doc data is {doc}.
+</Doc>
+```

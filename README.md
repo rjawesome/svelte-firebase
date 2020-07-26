@@ -40,7 +40,7 @@ The doc id {id}. The doc data is {doc}.
 ```
 
 
-Collection Component (this component will react automatically to changes in the Collection) -- In this example I assume this Doc component is inside the User Component:
+Collection Component (this component will react automatically to changes in the Collection) -- In this example I assume this Collection component is inside the User Component:
 ```javascript
 <Doc firebase={firebase} path="/users/{user.uid}/posts" let:collection>
 <div slot="loading">Loading...</div>

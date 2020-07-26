@@ -1,4 +1,4 @@
-# svelte-firebase
+# svelte-firebase - components to make firebase w/ svelte easier
 Setup:
 - Create a Svelte Project (I would highly recommend using this template: [https://github.com/sveltejs/template](https://github.com/sveltejs/template))
 - Put this in a folder where your source code is and call this folder ``svelte-firebase``

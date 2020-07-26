@@ -43,11 +43,11 @@ Doc Component (this component will react automatically to changes in the Documen
 
 Collection Component (this component will react automatically to changes in the Collection) -- In this example I assume this Collection component is inside the User Component:
 ```javascript
-<Doc firebase={firebase} path="/users/{user.uid}/posts" let:collection>
+<Collection firebase={firebase} path="/users/{user.uid}/posts" let:collection>
   <div slot="loading">Loading...</div>
   <div slot="fallback">Collection doesnt exist :(</div>
   {#each Object.entries(collection) as doc}
     The doc id is {doc[0]}. The data is {doc[1]}
   {/each}
-</Doc>
+</Collection>
 ```

@@ -23,9 +23,9 @@ if (firebase.apps.length !== 0) {
 User Component:
 ```javascript
 <User firebase={firebase} let:user>
-<div slot="loading">Loading...</div>
-<div slot="signed-out">Please Sign In!!!</div>
-Hi {user.displayName}!
+  <div slot="loading">Loading...</div>
+  <div slot="signed-out">Please Sign In!!!</div>
+  Hi {user.displayName}!
 </User>
 ```
 
@@ -33,9 +33,9 @@ Hi {user.displayName}!
 Doc Component (this component will react automatically to changes in the Document) -- In this example I assume this Doc component is inside the User Component:
 ```javascript
 <Doc firebase={firebase} path="/users/{user.uid}" let:id let:doc>
-<div slot="loading">Loading...</div>
-<div slot="fallback">Document doesnt exist :(</div>
-The doc id {id}. The doc data is {doc}.
+  <div slot="loading">Loading...</div>
+  <div slot="fallback">Document doesnt exist :(</div>
+  The doc id {id}. The doc data is {doc}.
 </Doc>
 ```
 
@@ -43,10 +43,10 @@ The doc id {id}. The doc data is {doc}.
 Collection Component (this component will react automatically to changes in the Collection) -- In this example I assume this Collection component is inside the User Component:
 ```javascript
 <Doc firebase={firebase} path="/users/{user.uid}/posts" let:collection>
-<div slot="loading">Loading...</div>
-<div slot="fallback">Collection doesnt exist :(</div>
-{#each Object.entries(collection) as doc}
-  The doc id is {doc[0]}. The data is {doc[1]}
-{/each}
+  <div slot="loading">Loading...</div>
+  <div slot="fallback">Collection doesnt exist :(</div>
+  {#each Object.entries(collection) as doc}
+    The doc id is {doc[0]}. The data is {doc[1]}
+  {/each}
 </Doc>
 ```
